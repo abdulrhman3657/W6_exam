@@ -15,10 +15,6 @@ logout_btn.addEventListener("click", () => {
 
 })
 
-// login_btn.classList.add("d-none")
-// signup_btn.classList.add("d-none")
-// logout_btn.classList.add("d-none")
-
 const getData = () => {
 
     fetch(api)
@@ -28,40 +24,28 @@ const getData = () => {
 
         countries.forEach(country => {
 
-        // console.log(country)
-
         let cards_container = document.getElementById("cards_container")
-
-        // <div class="border p-3 d-flex flex-column align-items-center bg-light rounded">
-        //   <p>Eritrea</p>
-        //   <p>State of Eritrea</p>
-        //   <p>5352000</p>
-        //   <img src="https://flagcdn.com/w320/er.png" alt="">
-        //   <p><span class="fw-bold">region:</span> Africa</p>
-        //   <p><span class="fw-bold">languages:</span> { "ara": "Arabic", "eng": "English", "tir": "Tigrinya" }</p>
-        //   <a href="https://goo.gl/maps/HRyqUpnPwwG6jY5j6">google maps</a>
-        // </div>
 
         let card = document.createElement("div")
         card.className = "card border p-3 d-flex flex-column align-items-center bg-light  rounded"
 
-        // card.style.height = "25rem"
+        card.style.height = "30rem"
 
         let country_common_name = document.createElement("p")
-        country_common_name.innerText = country.name.common
+        country_common_name.innerText = `common name: ${country.name.common}`
 
         let country_official_name = document.createElement("p")
-        country_official_name.innerText = country.name.official
+        country_official_name.innerText = `official name: ${country.name.official}`
 
         let population = document.createElement("p")
-        population.innerText = country.population
+        population.innerText = `population: ${country.population}`
 
         let img = document.createElement("img")
         img.src = country.flags.png
         // img.style.width = "50%"
 
         let region = document.createElement("p")
-        region.innerText = country.region
+        region.innerText = `regoin: ${country.region}`
 
         let languages = document.createElement("span")
         languages.innerText = JSON.stringify(country.languages)
